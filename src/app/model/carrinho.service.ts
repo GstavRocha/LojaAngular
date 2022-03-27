@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Produto } from './produto';
 import { Produtos } from './produtos';
 
 
@@ -8,6 +9,7 @@ import { Produtos } from './produtos';
 export class CarrinhoService {
   carrinho:any = [];
   preco:number = 0;
+  custo: number = 0;
 
   constructor() {}
 
@@ -23,8 +25,13 @@ export class CarrinhoService {
   }
 
  // verificar
-  calcular(): number {
-  return this.getCarrinho().map((carrinho)=> carrinho.preco).reduce((acc,amount)=> acc + amount, 0);
+  filtrar(Produtos: Produto): number {
+  return  this.custo =this.getCarrinho().filter(Produtos.preco);
+
+  }
+  calcular(Produtos: Produto):number {
+    return Produtos.preco += this.custo;
+
   }
   remover(index: number):boolean{
     if(index != null){

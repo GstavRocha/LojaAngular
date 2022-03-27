@@ -11,6 +11,7 @@ import { Produtos } from './../model/produtos';
 export class CarrinhoComponent implements OnInit {
   carrinho: any[];
   preco:number =0;
+  total: any= [];
 
   constructor(private sd: CarrinhoService) {
     this.carrinho = [];
@@ -19,7 +20,7 @@ export class CarrinhoComponent implements OnInit {
   }
   ngOnInit():void{
     this.carrinho = this.sd.obteTodos();
-    this.preco = this.sd.calcular();
+    this.preco = this.sd.calcular(this.total);
 
   }
   remover(index: number){
