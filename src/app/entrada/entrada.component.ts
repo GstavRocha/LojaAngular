@@ -10,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntradaComponent implements OnInit {
   produtos: Produtos[];
+  total: any = [];
   constructor(private sr: LojaService, private sd: CarrinhoService) {
     this.produtos = [];
+    this.total = this.sd.getCarrinho();
   }
 
   ngOnInit(): void {

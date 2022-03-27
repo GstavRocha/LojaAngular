@@ -1,5 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+
 import { CarrinhoService } from './../model/carrinho.service';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Produtos } from './../model/produtos';
 
 @Component({
   selector: 'app-carrinho',
@@ -7,12 +9,11 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-  carrinho: any [];
-  preco: number;
+  carrinho: any[];
+  preco:number =0;
 
   constructor(private sd: CarrinhoService) {
     this.carrinho = [];
-    this.preco = 1;
 
 
   }
@@ -20,6 +21,9 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho = this.sd.obteTodos();
     this.preco = this.sd.calcular();
 
+  }
+  remover(index: number){
+    this.sd.remover(index);
   }
 
 }
