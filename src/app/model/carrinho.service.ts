@@ -29,7 +29,7 @@ export class CarrinhoService {
   return  this.custo =this.getCarrinho().filter(Produtos.preco);
 
   }
-  calcular(Produtos: Produto):number {
+  calcular(Produtos:Produto):number {
     return Produtos.preco += this.custo;
 
   }
