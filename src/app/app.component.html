@@ -5,13 +5,14 @@
         </svg><h1><strong>Loja Tu Compra Nós Vende</strong></h1>
     </div>
   </div>
-  <div class="col">
+  <div class="row">
     <div class="col bg-white text-center border rounded shadow p-5">
-      <app-entrada></app-entrada>
+      <router-outlet></router-outlet>
     </div>
-  </div>
-  <div class="col bg-white text-center border rounded shadow p-5">
-    <app-carrinho></app-carrinho>
 
+    <div class="col bg-white text-center border rounded shadow p-5">
+      <app-carrinho></app-carrinho>
+
+    </div>
   </div>
 </div>

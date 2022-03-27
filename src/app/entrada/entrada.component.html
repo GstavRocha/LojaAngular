@@ -1,10 +1,19 @@
 <div class="bg-seconday" *ngFor="let produto of produtos">
   <div class="card-box">
-  <h5 class="bg-success text-white border rounded display-4"><strong>{{produto.nome}}</strong></h5>
+  <h6 class="bg-success text-white border rounded display-5"><strong>{{produto.nome}}</strong></h6>
   <img [src]="produto.imagem" [alt]="produto.nome">
   <p>{{produto.descricao}}</p>
   <p> R$ <strong class="text-danger">{{produto.preco}}</strong></p>
-  <input type="button" value="Adicionar ao Carrinho" class="btn btn-danger"/>
+  <p *ngIf="produto.promocao" class="alert-sm alert-danger text-danger">Em Promoção!!!</p>
+  <input type="button" value="Adicionar ao Carrinho" class="btn btn-danger" (click)="adicionar(
+  produto.nome,
+  produto.imagem,
+  produto.descricao,
+  produto.estoque,
+  produto.preco,
+  produto.promocao,
+  produto.categoria)"/>
   <br>
   </div>
 </div>
+<router-outlet></router-outlet>

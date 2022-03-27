@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CarrinhoService {
-  private carrinho:any[];
+  carrinho:any[];
 
   constructor() {
     this.carrinho = [];
@@ -16,11 +16,11 @@ export class CarrinhoService {
   getCarrinho(){
     return this.carrinho;
   }
-  addCarrinho( nome: string,imange:string, descricao: string, estoque: number, preco: number,promocao:boolean, categoria:string ){
-    this.getCarrinho().push({nome, descricao, estoque, preco, promocao, categoria});
+  addCarrinho( nome: string,imagem:string, descricao: string, estoque: number, preco: number,promocao:boolean, categoria:string ){
+    this.getCarrinho().push({nome, descricao,imagem, estoque, preco, promocao, categoria});
 
   }
-  produtosCarrinho(): number{
-    return this.getCarrinho().map((carrinho)=>carrinho.preco).reduce((adc, quant)=>adc + quant,0);
+  calcular(): number {
+    return this.getCarrinho().map((carrinho) => carrinho.preco).reduce((x, y) => x + y, 0);
   }
 }
