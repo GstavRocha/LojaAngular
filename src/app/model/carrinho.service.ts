@@ -10,6 +10,7 @@ export class CarrinhoService {
   carrinho:any = [];
   preco:number = 0;
   custo: number = 0;
+  produto: Produto[];
 
   constructor() {}
 
@@ -29,8 +30,14 @@ export class CarrinhoService {
   return  this.custo =this.getCarrinho().filter(Produtos.preco);
 
   }
-  calcular(Produtos:Produto):number {
-    return Produtos.preco += this.custo;
+  calcular():number {
+    let total: number = 0;
+
+    this.carrinho.forEach(protudo => {
+      total =+protudo.preco;
+
+    });
+    return total;
 
   }
   remover(index: number):boolean{

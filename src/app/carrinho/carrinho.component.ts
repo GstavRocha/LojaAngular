@@ -13,9 +13,9 @@ export class CarrinhoComponent implements OnInit {
   carrinho: any[];
   preco:number =0;
   total: Produto['preco'];
-  custo: any = 0;
+  //custo: any = 0;
 
-  constructor(private sd: CarrinhoService) {
+  constructor(public sd: CarrinhoService) {
     this.carrinho = [];
 
 
@@ -23,15 +23,16 @@ export class CarrinhoComponent implements OnInit {
   }
   ngOnInit():void{
     this.carrinho = this.sd.obteTodos();
-    this.preco = this.sd.calcular(this.custo);
+    //this.preco = this.sd.calcular();
 
   }
   remover(index: number){
     this.sd.remover(index);
   }
+  /*
   filtrar(Produtos: Produto){
    this.custo = this.sd.filtrar(Produtos);
 
-  }
+  }*/
 
 }
